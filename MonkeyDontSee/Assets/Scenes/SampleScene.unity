@@ -523,16 +523,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8549fe8137427ed479ddc6300b90fc7c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b9b951966ce5244d986f3bf05c8a54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 867137072}
-  timeOffset: 2
-  posOffset: {x: 1, y: 1}
-  leftLimit: 35.9
-  rightLimit: -11.9
-  bottomLimit: -6.28
-  topLimit: 11.09
+  timeOffset: 0
+  posOffset: {x: 0.5, y: 0}
+  leftLimit: -17.99
+  rightLimit: 39.07
+  bottomLimit: -9.53
+  topLimit: 10.51
 --- !u!1 &554582546
 GameObject:
   m_ObjectHideFlags: 0
