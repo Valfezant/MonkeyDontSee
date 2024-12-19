@@ -25,6 +25,7 @@ public class movement2 : MonoBehaviour
 
     private bool _onGround;
     
+    public bool jump = false;
     
     // Update is called once per frame
     private void Update()
@@ -34,10 +35,15 @@ public class movement2 : MonoBehaviour
         //Animation
         //animator.SetFloat("Speed", Mathf.Abs(horizontal2));
 
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, doublejump2 ? doublejumpingpower2 : jumpingpower2);
+            jump = true;
+            //Debug.Log("jumop");
+        }
 
         //DoubleJump Condition
-        if (GotWings)
+        /*if (GotWings)
         {
             //doublejumping
             if (_onGround && !Input.GetButton("Jump"))
@@ -67,7 +73,7 @@ public class movement2 : MonoBehaviour
             //Jumping
                 doublejump2 = false;
 
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (_onGround)
                 {
@@ -77,7 +83,7 @@ public class movement2 : MonoBehaviour
                     //animator.SetBool("IsJumping", true);
                 }
             }
-        }
+        }*/
 
         //just speed i think???
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
@@ -92,6 +98,8 @@ public class movement2 : MonoBehaviour
     private void FixedUpdate ()
     {
         rb.velocity = new Vector2(horizontal2 * speed2, rb.velocity.y);
+
+        jump = false;
 
         CheckCollision();
 
