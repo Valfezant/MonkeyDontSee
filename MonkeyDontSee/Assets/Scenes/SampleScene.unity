@@ -709,78 +709,6 @@ Transform:
   - {fileID: 725501077}
   m_Father: {fileID: 964791419}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &419009592
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 419009594}
-  - component: {fileID: 419009593}
-  m_Layer: 0
-  m_Name: New CCDSolver2D
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &419009593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 419009592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef93bb9fe9d240e418a7fb8b476f3d34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ConstrainRotation: 0
-  m_SolveFromDefaultPose: 1
-  m_Weight: 1
-  m_Chain:
-    m_EffectorTransform: {fileID: 1211849277}
-    m_TargetTransform: {fileID: 0}
-    m_TransformCount: 5
-    m_Transforms:
-    - {fileID: 1534790730}
-    - {fileID: 394888975}
-    - {fileID: 1722981484}
-    - {fileID: 489189796}
-    - {fileID: 1211849277}
-    m_DefaultLocalRotations:
-    - {x: 0, y: -0, z: 0.9958851, w: 0.09062543}
-    - {x: 0, y: 0, z: 0.13277571, w: 0.99114615}
-    - {x: 0, y: 0, z: 0.29559618, w: 0.955313}
-    - {x: 0, y: 0, z: -0.08982651, w: 0.99595743}
-    - {x: -0, y: -0, z: 0.098963484, w: 0.99509114}
-    m_StoredLocalRotations:
-    - {x: 0, y: 0, z: 0, w: 0}
-    - {x: 0, y: 0, z: 0, w: 0}
-    - {x: 0, y: 0, z: 0, w: 0}
-    - {x: 0, y: 0, z: 0, w: 0}
-    - {x: 0, y: 0, z: 0, w: 0}
-  m_Iterations: 10
-  m_Tolerance: 0.001
-  m_Velocity: 0.5
---- !u!4 &419009594
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 419009592}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 875461561}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &445817381
 GameObject:
   m_ObjectHideFlags: 0
@@ -2373,12 +2301,11 @@ Transform:
   m_GameObject: {fileID: 875461558}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.93, z: 0}
+  m_LocalPosition: {x: -4.64, y: 11.39, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2034946279}
-  - {fileID: 419009594}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &875461562
@@ -2414,12 +2341,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097b551f2844b054290f18a39bf892e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Solvers:
-  - {fileID: 419009593}
+  m_Solvers: []
   m_Weight: 1
-  m_SolverEditorData:
-  - color: {r: 0, g: 1, b: 0, a: 1}
-    showGizmo: 1
+  m_SolverEditorData: []
 --- !u!1 &903457914
 GameObject:
   m_ObjectHideFlags: 0
@@ -5360,7 +5284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1909280831
 MonoBehaviour:
   m_ObjectHideFlags: 0
