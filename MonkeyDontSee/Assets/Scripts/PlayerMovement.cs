@@ -6,14 +6,14 @@ public class PlayerMovement : MonoBehaviour
 {
     private float horizontalMove;
     private float verticalMove;
-
-    private float normGravityScale;
+    [HideInInspector] public float normGravityScale;
     
     [Header("Stats")]
     public float moveSpeed;
     public float jumpPower;
     public float doubleJumpPower;
     public float climbingSpeed;
+    public float waterSpeed;
 
     [Header("Utility")]
     [SerializeField] private Rigidbody2D rb;
@@ -24,8 +24,10 @@ public class PlayerMovement : MonoBehaviour
     private bool _doubleJump;
     private bool _facingRight = true;
     private bool _onGround;
-    private bool _isLadder;
+    private bool _isClimbable;
     private bool _isClimbing;
+
+    private bool _inWater;
 
     void Start()
     {
@@ -61,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //CLIMBING
-        if (_isLadder && Input.GetButton("Fire3"))
+        if (_isClimbable && Input.GetButton("Fire3"))
         {
             _isClimbing = true;
             _onGround = true;
@@ -76,6 +78,10 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.gravityScale = 0f;
             rb.velocity = new Vector2(rb.velocity.x, verticalMove * climbingSpeed);
+        }
+        else if (_inWater)
+        {
+            rb.gravityScale = 0f;
         }
         else
         {
@@ -98,21 +104,21 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //collisions
+    //on ground check
     private void CheckCollision()
     {
-        if (!_isClimbing)
+        if (!_isClimbing && !_inWater)
         {
             _onGround = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
         }
-        
     }
 
+    //find climbable walls
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Climbable"))
         {
-            _isLadder = true;
+            _isClimbable = true;
         }
     }
 
@@ -120,9 +126,31 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.CompareTag("Climbable"))
         {
-            _isLadder = false;
+            _isClimbable = false;
             _isClimbing = false;
             _onGround = true;
         }
+    }
+
+    //water movement
+    public void EnterWater()
+    {
+        _inWater = true;
+        _onGround = true;
+        
+        moveSpeed /= waterSpeed;
+        jumpPower /= waterSpeed;
+        doubleJumpPower /= waterSpeed;
+        climbingSpeed /= waterSpeed;
+    }
+
+    public void ExitWater()
+    {
+        _inWater = false;
+
+        moveSpeed *= waterSpeed;
+        jumpPower *= waterSpeed;
+        doubleJumpPower *= waterSpeed;
+        climbingSpeed *= waterSpeed;
     }
 }
