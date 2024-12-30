@@ -2023,6 +2023,7 @@ GameObject:
   - component: {fileID: 867137074}
   - component: {fileID: 867137076}
   - component: {fileID: 867137078}
+  - component: {fileID: 867137081}
   - component: {fileID: 867137079}
   - component: {fileID: 867137080}
   m_Layer: 0
@@ -2238,6 +2239,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.14996, y: 1.9309205}
   m_EdgeRadius: 0
+--- !u!114 &867137081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867137072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d6c40c8531da5f4592dd73010910038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 10
 --- !u!1 &867649996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3769,6 +3783,7 @@ GameObject:
   - component: {fileID: 1427382042}
   - component: {fileID: 1427382043}
   - component: {fileID: 1427382044}
+  - component: {fileID: 1427382045}
   m_Layer: 6
   m_Name: Spike
   m_TagString: Untagged
@@ -3872,7 +3887,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3891,6 +3906,19 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!114 &1427382045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427382041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eec7d70298c37934394b3d5ae2bb0293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spikeDamage: 5
 --- !u!1 &1439594894
 GameObject:
   m_ObjectHideFlags: 0
