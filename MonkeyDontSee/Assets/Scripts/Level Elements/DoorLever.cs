@@ -16,8 +16,6 @@ public class DoorLever : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("Enter " + other.tag);
-        
         if (other.CompareTag("Player"))
         {
             _byLever = true;
@@ -25,9 +23,7 @@ public class DoorLever : MonoBehaviour
     }
 
     private void OnTriggerExit2D(Collider2D other)
-    {
-        //Debug.Log("Enter " + other.tag);
-        
+    {        
         if (other.CompareTag("Player"))
         {
             _byLever = false;
