@@ -25,8 +25,9 @@ public class PlayerMovement : MonoBehaviour
     private bool _facingRight = true;
     private bool _onGround;
     private bool _isClimbable;
-    private bool _isClimbing;
+    public bool _isClimbing;
     private bool _inWater;
+    [HideInInspector] public bool _onWall;
 
     void Start()
     {
@@ -66,6 +67,12 @@ public class PlayerMovement : MonoBehaviour
         {
             _isClimbing = true;
             _onGround = true;
+
+            _onWall = true;
+        }
+        else
+        {
+            _onWall = false;
         }
     }
 
