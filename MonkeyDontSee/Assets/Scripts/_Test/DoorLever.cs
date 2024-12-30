@@ -5,37 +5,49 @@ using UnityEngine;
 public class DoorLever : MonoBehaviour
 {
     [SerializeField] private GameObject thisDoor;
+
+    private bool _wasActivated;
+    private bool _byLever;
     
-    // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _wasActivated = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log("Enter " + other.tag);
         
-        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
+        if (other.CompareTag("Player"))
         {
-            
-                OpenDoor();
-                Debug.Log("yay");
-            
+            _byLever = true;
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        //Debug.Log("Enter " + other.tag);
+        
+        if (other.CompareTag("Player"))
+        {
+            _byLever = false;
+        }
+    }
+    
+    void Update()
+    {
+        if ( _byLever && Input.GetKeyDown(KeyCode.E) && !_wasActivated)
+        {
+            OpenDoor();
+            Debug.Log("yay");
+            _wasActivated = true;
+        }
+    }
+
+    //ANIMATION!!! (on lever too)
     private void OpenDoor()
     {
         thisDoor.GetComponent<Collider2D>().enabled = false;
         thisDoor.GetComponent<SpriteRenderer>().color = Color.green;
-
-
     }
 }

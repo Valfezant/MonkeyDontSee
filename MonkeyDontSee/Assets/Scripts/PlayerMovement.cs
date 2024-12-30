@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     private bool _onGround;
     private bool _isClimbable;
     private bool _isClimbing;
-
     private bool _inWater;
 
     void Start()
