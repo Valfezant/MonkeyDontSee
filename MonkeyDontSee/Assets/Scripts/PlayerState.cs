@@ -37,7 +37,6 @@ public class PlayerState : MonoBehaviour
             Debug.Log(damageTaken);
             StartCoroutine(startIFrames());
         }
-        
     }
 
     private IEnumerator startIFrames()
