@@ -16,3 +16,4 @@ MonoBehaviour:
   eyeDescription: Allows to see the colour GREEN.
   eyeValue: 3
   colorLayerName: Green Layer
+  _canSee: 1

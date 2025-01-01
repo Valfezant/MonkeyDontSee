@@ -12,4 +12,6 @@ public class Eye : ScriptableObject
     public int eyeValue;
 
     public string colorLayerName;
+
+    public bool _canSee;
 }

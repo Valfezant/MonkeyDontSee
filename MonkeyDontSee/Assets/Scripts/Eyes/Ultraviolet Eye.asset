@@ -16,3 +16,4 @@ MonoBehaviour:
   eyeDescription: Allows to foretell the presence of danger.
   eyeValue: 5
   colorLayerName: Violet Layer
+  _canSee: 1

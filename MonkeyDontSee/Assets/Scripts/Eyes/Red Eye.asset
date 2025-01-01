@@ -16,3 +16,4 @@ MonoBehaviour:
   eyeDescription: Allows to see the colour RED.
   eyeValue: 2
   colorLayerName: Red Layer
+  _canSee: 1

@@ -16,3 +16,4 @@ MonoBehaviour:
   eyeDescription: Allows to see the colour BLUE.
   eyeValue: 2
   colorLayerName: Blue Layer
+  _canSee: 1

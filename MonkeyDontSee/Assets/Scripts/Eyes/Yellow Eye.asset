@@ -16,3 +16,4 @@ MonoBehaviour:
   eyeDescription: Allows to perceive golden guidance.
   eyeValue: 1
   colorLayerName: Yellow Layer
+  _canSee: 1

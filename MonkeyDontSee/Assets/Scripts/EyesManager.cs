@@ -20,9 +20,19 @@ public class EyesManager : MonoBehaviour
     void Start()
     {
         sacrificeCanvas.enabled = false;
+        StartCoroutine(EnableEyes());
     }
 
-    // Update is called once per frame
+    IEnumerator EnableEyes()
+    {
+        foreach (Eye eye in eyesArray)
+        {
+            eye._canSee = true;
+
+            yield return new WaitForSeconds(0);
+        }
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.X))
@@ -35,5 +45,20 @@ public class EyesManager : MonoBehaviour
     {
         sceneCamera.cullingMask &= ~(1 << LayerMask.NameToLayer(layer));
         Debug.Log("Culled" + layer);
+    }
+
+    public void RandomEye()
+    {
+        var randomEye = eyesArray[Random.Range(0, eyesArray.Length)];
+
+        if (randomEye._canSee)
+        {
+            BlindEye(randomEye.colorLayerName);
+            randomEye._canSee = false;
+        }
+        else
+        {
+            RandomEye();
+        }
     }
 }
