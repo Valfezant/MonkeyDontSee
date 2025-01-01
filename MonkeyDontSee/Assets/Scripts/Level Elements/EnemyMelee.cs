@@ -57,7 +57,7 @@ public class EnemyMelee : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             var player = other.GetComponent<PlayerState>();
-            player.playerHealth -= enemyDamage;
+            player.DamagePlayer(enemyDamage);
 
             var playerRb = other.GetComponent<Rigidbody2D>();
             playerRb.AddForce(transform.up * 5f, ForceMode2D.Impulse);

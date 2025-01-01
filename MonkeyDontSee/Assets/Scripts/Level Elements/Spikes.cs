@@ -11,7 +11,8 @@ public class Spikes : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             var player = other.GetComponent<PlayerState>();
-            player.playerHealth -= spikeDamage;
+            player.DamagePlayer(spikeDamage);
+            //player.playerHealth -= spikeDamage;
             //Debug.Log("yeeeouch!");
 
             var playerRb = other.GetComponent<Rigidbody2D>();
