@@ -2,25 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EyesManager : MonoBehaviour
 {
-    //Scriptable objects con valori
-    //lista di SO con numero
-    //prendi int
-    //prendi valore ed esegui
-
     [SerializeField] private Camera sceneCamera;
 
     [SerializeField] public Eye[] eyesArray;
 
+    [SerializeField] private int baseSacrificeCost;
+    private int currentSacrificeCost;
+    public int offerValue;
+
     //canvases
     [SerializeField] private Canvas sacrificeCanvas; 
+    [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] private Button sacrificeButton;
     
     void Start()
     {
         sacrificeCanvas.enabled = false;
         StartCoroutine(EnableEyes());
+
+        currentSacrificeCost = baseSacrificeCost;
     }
 
     IEnumerator EnableEyes()
@@ -33,18 +37,11 @@ public class EyesManager : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        //DEBUG
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            sacrificeCanvas.enabled = !sacrificeCanvas.enabled;
-        }
-    }
-
     public void SacrificeScreen()
     {
         sacrificeCanvas.enabled = true;
+        costText.text = "Requested cost: " + currentSacrificeCost;
+        sacrificeButton.interactable = false;
     }
 
     public void BlindEye(string layer)
@@ -66,5 +63,36 @@ public class EyesManager : MonoBehaviour
         {
             RandomEye();
         }
+    }
+
+    void Update()
+    {
+        //DEBUG
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            sacrificeCanvas.enabled = !sacrificeCanvas.enabled;
+        }
+
+        //check is price is met
+        if (offerValue >= currentSacrificeCost)
+        {
+            sacrificeButton.interactable = true;
+        }
+    }
+
+    public void PerformSacrifice()
+    {
+        
+
+        //Find respawn script, proceed with resurrection
+        var respawnScript = GameObject.FindWithTag("Manager").GetComponent<RespawnPlayer>();
+        respawnScript.ResurrectPlayer();
+
+        //Hide canvas
+        sacrificeCanvas.enabled = false;
+        sacrificeButton.interactable = false;
+
+        //Update price
+        currentSacrificeCost *= 2;
     }
 }
