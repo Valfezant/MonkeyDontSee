@@ -25,7 +25,9 @@ public class PlayerState : MonoBehaviour
     {
         if (playerHealth == 0)
         {
-            Debug.Log("DIED");
+            var manager = GameObject.FindWithTag("Manager").GetComponent<EyesManager>();
+            manager.SacrificeScreen();
+            //Debug.Log("DIED");
         }
     }
 

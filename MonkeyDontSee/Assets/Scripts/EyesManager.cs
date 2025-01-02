@@ -35,10 +35,16 @@ public class EyesManager : MonoBehaviour
 
     void Update()
     {
+        //DEBUG
         if (Input.GetKeyDown(KeyCode.X))
         {
             sacrificeCanvas.enabled = !sacrificeCanvas.enabled;
         }
+    }
+
+    public void SacrificeScreen()
+    {
+        sacrificeCanvas.enabled = true;
     }
 
     public void BlindEye(string layer)

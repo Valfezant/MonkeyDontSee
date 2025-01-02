@@ -15,5 +15,13 @@ public class EyesButtons : MonoBehaviour
         sprite.color = Color.black;
         GetComponent<Button>().interactable = false;
         thisEye._canSee = false;
+
+        StartResurrection();
+    }
+
+    private void StartResurrection()
+    {
+        var respawnScript = GameObject.FindWithTag("Manager").GetComponent<RespawnPlayer>();
+        respawnScript.ResurrectPlayer();
     }
 }

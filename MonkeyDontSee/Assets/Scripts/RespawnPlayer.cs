@@ -16,15 +16,23 @@ public class RespawnPlayer : MonoBehaviour
     public void ResurrectPlayer()
     {
         //reposition
-        player.transform.position = recentRespawnPoint.position;
+        if (recentRespawnPoint != null)
+        {
+            player.transform.position = recentRespawnPoint.position;
+        }
 
         //reset values
         var playerScript = player.GetComponent<PlayerState>();
         playerScript.playerHealth = playerScript.maxPlayerHealth;
+
+        //hide Canvas
+        var canvas = GameObject.FindWithTag("Sacrifice Canvas").GetComponent<Canvas>();
+        canvas.enabled = false;
     }
 
     void Update()
     {
+        //DEBUG
         if (Input.GetKeyDown(KeyCode.F))
         {
             ResurrectPlayer();
