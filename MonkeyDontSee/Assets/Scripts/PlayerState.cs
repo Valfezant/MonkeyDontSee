@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
-    //HP => die
-    //n eyes & state
-    //deactivate eye
+    //NNEDS TO BRING UP SACRIFICE SCREEN
 
+    public float maxPlayerHealth;
     public float playerHealth;
     
     [SerializeField] private int iframesTime;
@@ -19,6 +18,7 @@ public class PlayerState : MonoBehaviour
     {
         _iFrames = false;
         spriteRend = GetComponent<SpriteRenderer>();
+        playerHealth = maxPlayerHealth;
     }
 
     void Update()
