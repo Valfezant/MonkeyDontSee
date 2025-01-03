@@ -3036,6 +3036,7 @@ MonoBehaviour:
   maxPlayerHealth: 10
   playerHealth: 10
   iframesTime: 1
+  _isDead: 0
 --- !u!1 &867649996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3767,7 +3768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40284d700a9197848977ee4d0037512d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drownTime: 5
+  drownTime: 3
   currentDrownTime: 0
 --- !u!61 &987148620
 BoxCollider2D:
@@ -6364,6 +6365,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e1fda8a849012c64b9c8f77b06ff8307, type: 2}
   baseSacrificeCost: 2
   offerValue: 0
+  _usedAltar: 0
   sacrificeCanvas: {fileID: 2035739973}
   costText: {fileID: 76242957}
   offerText: {fileID: 1733507715}

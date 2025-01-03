@@ -24,7 +24,15 @@ public class PlayerState : MonoBehaviour
 
     void Update()
     {
-        if (playerHealth <= 0 && !_isDead)
+        if (playerHealth <= 0)
+        {
+            PlayerDead();
+        }
+    }
+
+    private void PlayerDead()
+    {
+        if (!_isDead)
         {
             var manager = GameObject.FindWithTag("Manager").GetComponent<EyesManager>();
             manager.SacrificeScreen();
@@ -32,12 +40,14 @@ public class PlayerState : MonoBehaviour
             Debug.Log("DIED");
 
             _isDead = true;
-            _iFrames = true;
         }
-        else if (playerHealth > 0)
-        {
-            _isDead = false;
-        }
+    }
+
+    public void RestoreValues()
+    {
+        playerHealth = 10f;
+        _isDead = false;
+        Debug.Log("Player restored");
     }
 
     public void DamagePlayer(float damageTaken)

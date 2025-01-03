@@ -23,9 +23,10 @@ public class RespawnPlayer : MonoBehaviour
 
         //reset values
         var playerScript = player.GetComponent<PlayerState>();
-        playerScript.playerHealth = 10f;
+        playerScript.RestoreValues();
+        /*playerScript.playerHealth = 10f;
         playerScript._isDead = false;
-        Debug.Log("wtf");
+        Debug.Log("wtf");*/
     }
 
     void Update()

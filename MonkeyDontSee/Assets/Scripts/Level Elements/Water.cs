@@ -43,7 +43,8 @@ public class Water : MonoBehaviour
         }
         else if (_isDrowning && currentDrownTime == 0)
         {
-            player.GetComponent<PlayerState>().playerHealth = 0;
+            player.GetComponent<PlayerState>().DamagePlayer(10);
+            _isDrowning = false;
         }
     }
 }
