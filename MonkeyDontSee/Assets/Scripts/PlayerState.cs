@@ -12,7 +12,8 @@ public class PlayerState : MonoBehaviour
     [SerializeField] private int iframesTime;
     private bool _iFrames;
     private SpriteRenderer spriteRend;
-    
+
+    public bool _isDead;
     
     void Start()
     {
@@ -23,11 +24,19 @@ public class PlayerState : MonoBehaviour
 
     void Update()
     {
-        if (playerHealth == 0)
+        if (playerHealth <= 0 && !_isDead)
         {
             var manager = GameObject.FindWithTag("Manager").GetComponent<EyesManager>();
             manager.SacrificeScreen();
-            //Debug.Log("DIED");
+
+            Debug.Log("DIED");
+
+            _isDead = true;
+            _iFrames = true;
+        }
+        else if (playerHealth > 0)
+        {
+            _isDead = false;
         }
     }
 

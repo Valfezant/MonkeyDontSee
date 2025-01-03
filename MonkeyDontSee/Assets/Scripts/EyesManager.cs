@@ -13,11 +13,17 @@ public class EyesManager : MonoBehaviour
     [SerializeField] private int baseSacrificeCost;
     private int currentSacrificeCost;
     public int offerValue;
+    [SerializeField] private bool _usedAltar;
 
     //canvases
     [SerializeField] private Canvas sacrificeCanvas; 
     [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] private TextMeshProUGUI offerText;
     [SerializeField] private Button sacrificeButton;
+
+    //Events
+    public delegate void ClickAction();
+    public static event ClickAction OnClicked;
     
     void Start()
     {
@@ -25,6 +31,8 @@ public class EyesManager : MonoBehaviour
         StartCoroutine(EnableEyes());
 
         currentSacrificeCost = baseSacrificeCost;
+
+        _usedAltar = false;
     }
 
     IEnumerator EnableEyes()
@@ -39,9 +47,18 @@ public class EyesManager : MonoBehaviour
 
     public void SacrificeScreen()
     {
-        sacrificeCanvas.enabled = true;
-        costText.text = "Requested cost: " + currentSacrificeCost;
-        sacrificeButton.interactable = false;
+        if (!_usedAltar)
+        {
+            sacrificeCanvas.enabled = true;
+            costText.text = "Requested cost: " + currentSacrificeCost;
+            sacrificeButton.interactable = false;
+        }
+        else
+        {
+            var respawnScript = GameObject.FindWithTag("Manager").GetComponent<RespawnPlayer>();
+            respawnScript.ResurrectPlayer();
+            _usedAltar = false;
+        }
     }
 
     public void BlindEye(string layer)
@@ -53,6 +70,7 @@ public class EyesManager : MonoBehaviour
     public void RandomEye()
     {
         var randomEye = eyesArray[Random.Range(0, eyesArray.Length)];
+        Debug.Log(randomEye);
 
         if (randomEye._canSee)
         {
@@ -63,6 +81,8 @@ public class EyesManager : MonoBehaviour
         {
             RandomEye();
         }
+
+        _usedAltar = true;
     }
 
     void Update()
@@ -70,8 +90,10 @@ public class EyesManager : MonoBehaviour
         //DEBUG
         if (Input.GetKeyDown(KeyCode.X))
         {
-            sacrificeCanvas.enabled = !sacrificeCanvas.enabled;
+           SacrificeScreen();
         }
+
+        offerText.text = "Current offer: " + offerValue;
 
         //check is price is met
         if (offerValue >= currentSacrificeCost)
@@ -80,9 +102,13 @@ public class EyesManager : MonoBehaviour
         }
     }
 
+    //On "Sacrifice!" button
     public void PerformSacrifice()
     {
-        
+        if (OnClicked != null)
+        {
+            OnClicked();
+        }
 
         //Find respawn script, proceed with resurrection
         var respawnScript = GameObject.FindWithTag("Manager").GetComponent<RespawnPlayer>();

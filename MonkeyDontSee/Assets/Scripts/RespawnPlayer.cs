@@ -23,11 +23,9 @@ public class RespawnPlayer : MonoBehaviour
 
         //reset values
         var playerScript = player.GetComponent<PlayerState>();
-        playerScript.playerHealth = playerScript.maxPlayerHealth;
-
-        //hide Canvas
-        //var canvas = GameObject.FindWithTag("Sacrifice Canvas").GetComponent<Canvas>();
-        //canvas.enabled = false;
+        playerScript.playerHealth = 10f;
+        playerScript._isDead = false;
+        Debug.Log("wtf");
     }
 
     void Update()
