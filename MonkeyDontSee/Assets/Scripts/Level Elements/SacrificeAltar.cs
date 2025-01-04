@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class SacrificeAltar : MonoBehaviour
 {
     [SerializeField] private EyesManager eyesManager;
+    [SerializeField] private GameObject altarText;
 
     private bool _playerClose;
     private bool _wasUsed;
@@ -12,6 +15,7 @@ public class SacrificeAltar : MonoBehaviour
     private void Start()
     {
         _wasUsed = false;
+        altarText.GetComponent<TextMeshPro>().text = "";
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -19,6 +23,7 @@ public class SacrificeAltar : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _playerClose = true;
+            altarText.GetComponent<TextMeshPro>().text = "Press E to perform sacrifice.";
         }
     }
 
@@ -27,6 +32,7 @@ public class SacrificeAltar : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _playerClose = false;
+            altarText.GetComponent<TextMeshPro>().text = "";
         }
     }
 
