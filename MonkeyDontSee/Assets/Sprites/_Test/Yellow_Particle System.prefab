@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3516980509321345676}
   - component: {fileID: 8888677319658569480}
   - component: {fileID: 6287150196277377012}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Yellow_Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

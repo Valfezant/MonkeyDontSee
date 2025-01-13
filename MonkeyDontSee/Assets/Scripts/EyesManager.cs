@@ -50,6 +50,7 @@ public class EyesManager : MonoBehaviour
         if (!_usedAltar)
         {
             sacrificeCanvas.enabled = true;
+            offerValue = 0;
             costText.text = "Requested cost: " + currentSacrificeCost;
             sacrificeButton.interactable = false;
         }

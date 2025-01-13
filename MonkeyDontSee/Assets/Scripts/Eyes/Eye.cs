@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "New Eye", menuName = "Eye")]
 public class Eye : ScriptableObject
@@ -14,4 +15,8 @@ public class Eye : ScriptableObject
     public string colorLayerName;
 
     public bool _canSee;
+
+    public Sprite eyeOpen;
+    public Sprite eyeClosed;
+    public Sprite eyeScar;
 }

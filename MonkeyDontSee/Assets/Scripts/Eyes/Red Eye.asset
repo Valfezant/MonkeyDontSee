@@ -17,3 +17,6 @@ MonoBehaviour:
   eyeValue: 2
   colorLayerName: Red Layer
   _canSee: 1
+  eyeOpen: {fileID: 21300000, guid: fab18b744f0d45949b529119ffb81710, type: 3}
+  eyeClosed: {fileID: 21300000, guid: 79f1c615a78501044a5f9e6ebaa5f36d, type: 3}
+  eyeScar: {fileID: 21300000, guid: 38b6e5ec15a5c1e47887c483eefeb37a, type: 3}

@@ -21,8 +21,8 @@ public class EyesButtons : MonoBehaviour
         if (!_eyeSelected)
         {
             //offer
-            var sprite = GetComponent<RawImage>();
-            sprite.color = Color.blue;
+            var image = GetComponent<Image>();
+            image.sprite = thisEye.eyeClosed;
 
             EyesManager.OnClicked += EyeOffered;
 
@@ -33,8 +33,8 @@ public class EyesButtons : MonoBehaviour
         else
         {
             //restore
-            var sprite = GetComponent<RawImage>();
-            sprite.color = Color.white;
+            var image = GetComponent<Image>();
+            image.sprite = thisEye.eyeOpen;
 
             EyesManager.OnClicked -= EyeOffered;
 
@@ -49,6 +49,10 @@ public class EyesButtons : MonoBehaviour
         eyesManager.BlindEye(thisEye.colorLayerName);
         GetComponent<Button>().interactable = false;
         thisEye._canSee = false;
+
+        //Change sprite
+        var image = GetComponent<Image>();
+        image.sprite = thisEye.eyeScar;
     }
 
     void Update()
@@ -60,25 +64,15 @@ public class EyesButtons : MonoBehaviour
     {
         if (!thisEye._canSee)
         {
-            var sprite = GetComponent<RawImage>();
-            sprite.color = Color.red;
+            /*var sprite = GetComponent<Image>();
+            sprite = thisEye.eyeScar;*/
             GetComponent<Button>().interactable = false;
         }
         else
         {
-            var sprite = GetComponent<RawImage>();
-            sprite.color = Color.white;
+            /*var sprite = GetComponent<Image>();
+            sprite = thisEye.eyeOpen;*/
             GetComponent<Button>().interactable = true;
         }
     }
-
-
-    //--Nuovo bottone--
-    //--valore sugli SO--
-    //--ricorda occhio scelto, rimuovi dopo--
-    //--check cost raggiunto--
-    //--indicatore costo--
-    //--valore costo, counter sacrifici (costo * 2?)--
-    //sacrifici stored da altare
-
 }

@@ -11,7 +11,7 @@ public class EnemyMelee : MonoBehaviour
     [SerializeField] private float enemyDamage;
 
     private Rigidbody2D enemyRb;
-    private Transform currentPoint;
+    [SerializeField] private Transform currentPoint;
 
     void Start()
     {
@@ -32,13 +32,13 @@ public class EnemyMelee : MonoBehaviour
             enemyRb.velocity = new Vector2(-enemySpeed, 0);
         }
 
-        if(Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointB.transform)
+        if(Vector2.Distance(transform.position, currentPoint.position) < 1f && currentPoint == pointB.transform)
         {
             Flip();
             currentPoint = pointA.transform;
         }
 
-        if(Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointA.transform)
+        if(Vector2.Distance(transform.position, currentPoint.position) < 1f && currentPoint == pointA.transform)
         {
             Flip();
             currentPoint = pointB.transform;
