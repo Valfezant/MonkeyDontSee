@@ -10,6 +10,7 @@ public class StartMenu : MonoBehaviour
     //Panels
     [SerializeField] private GameObject titlePanel;
     [SerializeField] private GameObject storyPanel;
+    [SerializeField] private GameObject transitionPanel;
     
     //Story
     [Header("Story Text")]
@@ -76,6 +77,8 @@ public class StartMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("1_Level Scene", LoadSceneMode.Single);
+        transitionPanel.SetActive(true);
+        transitionPanel.GetComponent<TransitionPanelAnimator>().FadeOut();
+        //SceneManager.LoadScene("1_Level Scene", LoadSceneMode.Single);
     }
 }
