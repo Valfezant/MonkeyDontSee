@@ -21,6 +21,8 @@ public class EyesButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         _eyeSelected = false;
 
         HideTooltip();
+
+        eyesManager.onPlayerGiveUp += RestoreEye;
     }
 
     //On "eye" buttons
@@ -63,25 +65,32 @@ public class EyesButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         image.sprite = thisEye.eyeScar;
     }
 
-    void Update()
-    {
-        
-    }
-
     void OnEnabled()
     {
         if (!thisEye._canSee)
         {
-            /*var sprite = GetComponent<Image>();
-            sprite = thisEye.eyeScar;*/
             GetComponent<Button>().interactable = false;
         }
         else
         {
-            /*var sprite = GetComponent<Image>();
-            sprite = thisEye.eyeOpen;*/
             GetComponent<Button>().interactable = true;
         }
+    }
+
+    void OnDisabled()
+    {
+        eyesManager.onPlayerGiveUp -= RestoreEye;
+    }
+
+    //ON PLAYER GIVEUP
+    public void RestoreEye()
+    {
+        var image = GetComponent<Image>();
+        image.sprite = thisEye.eyeOpen;
+
+        GetComponent<Button>().interactable = true;
+
+        _eyeSelected = false;
     }
 
     //SHOWING TOOLTIP

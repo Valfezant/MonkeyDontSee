@@ -24,6 +24,8 @@ public class EyesManager : MonoBehaviour
     //Events
     public delegate void ClickAction();
     public static event ClickAction OnClicked;
+
+    public event ClickAction onPlayerGiveUp;
     
     void Start()
     {
@@ -93,6 +95,10 @@ public class EyesManager : MonoBehaviour
         {
            SacrificeScreen();
         }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+           PlayerGiveUp();
+        }
 
         offerText.text = "Current offer: " + offerValue;
 
@@ -121,5 +127,24 @@ public class EyesManager : MonoBehaviour
 
         //Update price
         currentSacrificeCost *= 2;
+    }
+
+    //GIVE UP
+    //reset eyes, 
+    //reset layers -v
+    //player position
+    //close passages
+    //sacrifice cost
+    public void PlayerGiveUp()
+    {
+        if (onPlayerGiveUp != null)
+        {
+            onPlayerGiveUp();
+            //Debug.Log("Not");
+        }
+
+        StartCoroutine(EnableEyes());
+
+        sceneCamera.cullingMask = -1;
     }
 }
