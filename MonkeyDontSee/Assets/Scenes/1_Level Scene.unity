@@ -645,6 +645,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7789748001412103484, guid: d53cbc4bca9a44842a45fe885779991e, type: 3}
   m_PrefabInstance: {fileID: 38682260}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &41332784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 41332785}
+  m_Layer: 0
+  m_Name: PlayerStartPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &41332785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41332784}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -90, y: -13, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &42262222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23365,6 +23396,7 @@ MonoBehaviour:
   baseSacrificeCost: 2
   offerValue: 0
   _usedAltar: 0
+  lastAltarTransform: {fileID: 41332785}
   sacrificeCanvas: {fileID: 2035739973}
   costText: {fileID: 76242957}
   offerText: {fileID: 1733507715}
@@ -32299,3 +32331,4 @@ SceneRoots:
   - {fileID: 1585291911}
   - {fileID: 870130001}
   - {fileID: 248453418}
+  - {fileID: 41332785}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class DoorLever : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class DoorLever : MonoBehaviour
     void Start()
     {
         _wasActivated = false;
+        EyesManager.onPlayerGiveUp += RelockDoor;
+    }
+
+    void OnDisabled()
+    {
+        EyesManager.onPlayerGiveUp -= RelockDoor;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -44,6 +51,14 @@ public class DoorLever : MonoBehaviour
     private void OpenDoor()
     {
         thisDoor.GetComponent<Collider2D>().enabled = false;
-        thisDoor.GetComponent<SpriteRenderer>().color = Color.green;
+        thisDoor.GetComponent<SpriteRenderer>().color = Color.gray;
+    }
+
+    //ON PLAYER GIVEUP
+    private void RelockDoor()
+    {
+        thisDoor.GetComponent<Collider2D>().enabled = true;
+        thisDoor.GetComponent<SpriteRenderer>().color = Color.white;
+        _wasActivated = false;
     }
 }

@@ -14,11 +14,18 @@ public class SecretPassage : MonoBehaviour
     {
         _isOpen = false;
         passageText.GetComponent<TextMeshPro>().text = "";
+
+        EyesManager.onPlayerGiveUp += ClosePassage;
+    }
+
+    void OnDisabled()
+    {
+        EyesManager.onPlayerGiveUp -= ClosePassage;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !_isOpen)
         {
             _playerNear = true;
             passageText.GetComponent<TextMeshPro>().text = "Press E to open.";
@@ -48,5 +55,13 @@ public class SecretPassage : MonoBehaviour
     {
         this.gameObject.GetComponent<Collider2D>().enabled = false;
         this.gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
+    }
+
+    //ON PLAYER GIVEUP
+    private void ClosePassage()
+    {
+        this.gameObject.GetComponent<Collider2D>().enabled = true;
+        this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        _isOpen = false;
     }
 }

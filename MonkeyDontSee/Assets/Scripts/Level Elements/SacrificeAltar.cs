@@ -24,6 +24,8 @@ public class SacrificeAltar : MonoBehaviour
         {
             _playerClose = true;
             altarText.GetComponent<TextMeshPro>().text = "Press E to perform sacrifice.";
+
+            eyesManager.lastAltarTransform = gameObject.transform;
         }
     }
 

@@ -22,7 +22,7 @@ public class EyesButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         HideTooltip();
 
-        eyesManager.onPlayerGiveUp += RestoreEye;
+        EyesManager.onPlayerGiveUp += RestoreEye;
     }
 
     //On "eye" buttons
@@ -79,7 +79,7 @@ public class EyesButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     void OnDisabled()
     {
-        eyesManager.onPlayerGiveUp -= RestoreEye;
+        EyesManager.onPlayerGiveUp -= RestoreEye;
     }
 
     //ON PLAYER GIVEUP

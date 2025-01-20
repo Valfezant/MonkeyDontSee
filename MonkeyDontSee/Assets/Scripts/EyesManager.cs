@@ -13,9 +13,13 @@ public class EyesManager : MonoBehaviour
     [SerializeField] private int baseSacrificeCost;
     private int currentSacrificeCost;
     public int offerValue;
+
+    [Header("Altars")]
     [SerializeField] private bool _usedAltar;
+    public Transform lastAltarTransform;
 
     //canvases
+    [Header("Canvas")]
     [SerializeField] private Canvas sacrificeCanvas; 
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] private TextMeshProUGUI offerText;
@@ -25,7 +29,7 @@ public class EyesManager : MonoBehaviour
     public delegate void ClickAction();
     public static event ClickAction OnClicked;
 
-    public event ClickAction onPlayerGiveUp;
+    public static event ClickAction onPlayerGiveUp;
     
     void Start()
     {
@@ -130,21 +134,22 @@ public class EyesManager : MonoBehaviour
     }
 
     //GIVE UP
-    //reset eyes, 
-    //reset layers -v
-    //player position
-    //close passages
-    //sacrifice cost
     public void PlayerGiveUp()
     {
         if (onPlayerGiveUp != null)
         {
             onPlayerGiveUp();
-            //Debug.Log("Not");
         }
 
         StartCoroutine(EnableEyes());
-
         sceneCamera.cullingMask = -1;
+
+        currentSacrificeCost = baseSacrificeCost;
+
+        if (lastAltarTransform != null)
+        {
+            var player = GameObject.FindWithTag("Player");
+            player.transform.position = lastAltarTransform.position;
+        }
     }
 }
