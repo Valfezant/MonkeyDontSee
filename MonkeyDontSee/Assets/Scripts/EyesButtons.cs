@@ -97,6 +97,7 @@ public class EyesButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private void ShowTooltip()
     {
+        tooltipBg.gameObject.SetActive(true);
         tooltipText.text = thisEye.eyeDescription;
 
         //tooltipBg.sizeDelta = new Vector2(tooltipText.preferredWidth, tooltipText.preferredHeight > 500 ? 500 : tooltipText.preferredHeight);
