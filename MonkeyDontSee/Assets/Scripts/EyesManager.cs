@@ -24,6 +24,7 @@ public class EyesManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] private TextMeshProUGUI offerText;
     [SerializeField] private Button sacrificeButton;
+    [SerializeField] private GameObject giveUpPanel;
 
     //Events
     public delegate void ClickAction();
@@ -39,6 +40,8 @@ public class EyesManager : MonoBehaviour
         currentSacrificeCost = baseSacrificeCost;
 
         _usedAltar = false;
+
+        giveUpPanel.SetActive(false);
     }
 
     IEnumerator EnableEyes()
@@ -103,6 +106,10 @@ public class EyesManager : MonoBehaviour
         {
            PlayerGiveUp();
         }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            giveUpPanel.SetActive(false);
+        }
 
         offerText.text = "Current offer: " + offerValue;
 
@@ -134,6 +141,11 @@ public class EyesManager : MonoBehaviour
     }
 
     //GIVE UP
+    public void ShowGiveUpPanel()
+    {
+        giveUpPanel.SetActive(true);
+    }
+    
     public void PlayerGiveUp()
     {
         if (onPlayerGiveUp != null)
@@ -151,5 +163,14 @@ public class EyesManager : MonoBehaviour
             var player = GameObject.FindWithTag("Player");
             player.transform.position = lastAltarTransform.position;
         }
+
+        giveUpPanel.SetActive(false);
+        sacrificeCanvas.enabled = false;
+    }
+
+    //QUIT
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
