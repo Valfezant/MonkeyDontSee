@@ -12,8 +12,6 @@ public class Spikes : MonoBehaviour
         {
             var player = other.GetComponent<PlayerState>();
             player.DamagePlayer(spikeDamage);
-            //player.playerHealth -= spikeDamage;
-            //Debug.Log("yeeeouch!");
 
             var playerRb = other.GetComponent<Rigidbody2D>();
             playerRb.AddForce(transform.up * 5f, ForceMode2D.Impulse);

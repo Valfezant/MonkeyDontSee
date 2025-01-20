@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float doubleJumpPower;
     public float climbingSpeed;
     public float waterSpeed;
+    public float Fallmultiplier;
 
     [Header("Utility")]
     [SerializeField] private Rigidbody2D rb;
@@ -79,6 +80,11 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontalMove * moveSpeed, rb.velocity.y);
+
+        if (rb.velocity.y < 1 && !_inWater)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * Fallmultiplier * Time.deltaTime;
+        }
 
         if (_isClimbing && Input.GetButton("Fire3"))
         {

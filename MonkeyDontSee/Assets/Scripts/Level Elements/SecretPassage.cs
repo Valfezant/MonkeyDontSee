@@ -46,7 +46,6 @@ public class SecretPassage : MonoBehaviour
         if ( _playerNear && Input.GetKeyDown(KeyCode.E) && !_isOpen)
         {
             OpenPassage();
-            Debug.Log("opeeeen");
             _isOpen = true;
         }
     }

@@ -1607,14 +1607,15 @@ MonoBehaviour:
   storyPanel: {fileID: 809498205}
   transitionPanel: {fileID: 1835727835}
   storyText: {fileID: 417545643}
-  story: "Il clan possiede tante leggende, tra cui quella di un artefatto da un valore
-    inestimabile. Forgiato dagli dei, possederlo garantisce onniscienza.\r\n\r\nLa
-    protagonista \xE8 un outcast del suo gruppo, testarda e determinata, \xE8 sempre
-    alla disperata ricerca di maggiore conoscenza. Inizia il viaggio per ottenere
-    l\u2019artefatto. Grazie ai suoi sensi elevati dalla sua grande dedizione allo
-    studio e meditazione, ha stabilito un contatto con gli dei, che la osserveranno
-    durante la sua avventura. La potranno anche aiutare, ma ogni benedizione ha un
-    costo.\r"
+  story: "The Clan elders tell many legends, stories as ancient as life itself. Tales
+    of fearless warriors, of deceiving forests, of great ventures into the unknowable.
+    \r\nOf a long lost artifact once forged by the Gods, blessing whoever may hold
+    it with the sacred gift of omniscience.\r\n\r\nAll her life she\u2019s dreamed
+    of it, her hunger for knowledge exhausting her youth on dusty tomes and solitary
+    contemplation. Now, she hears the voices of the Gods - she knows the artifact
+    lies along her path. \r\n\r\nIt\u2019s time for her to become the hero of a new
+    legend. The Gods will be watching, and maybe they\u2019ll even provide assistance.\r\n\r\nThough
+    every blessing has a price.\r"
   textSpeed: 0.02
   storyImages:
   - {fileID: 1002696143}

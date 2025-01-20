@@ -35,7 +35,7 @@ public class StartMenu : MonoBehaviour
 
         StopAllCoroutines();
         StartCoroutine(TypeStory());
-        StartCoroutine(ShowImages());
+        //StartCoroutine(ShowImages());
     }
 
     private IEnumerator TypeStory()

@@ -1266,19 +1266,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f778998dc0e2cd4fb47a2627491dfa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endingStory: "At last, she reached the sacred altar where the artifact sat, awaiting
-    a worthy holder. Though worn and battle-scarred, she scaled the mound of dirt
-    and stone, her endless thirst restoring her strength. \r\n\r\nAnd yet atop the
-    altar, she found nothing. She stood across from it, taking in the overwhelming
-    divine power all around; no doubt about it, this was the right place. Yet the
-    artifact was nowhere to be found.\r\n\r\nOr, rather - a thought struck her like
-    sudden lightning - she could not find it. Her eyes! No longer did they see clearly!
-    In her desperate pursuit she had forsaken that which allowed her to know. The
-    artifact must have been right there\u2026 yet she could not behold its sight.
-    She was not worthy of it.\r\n\r\nShe turned back. No use lingering someplace
-    she never truly belonged. Wordlessly, she cursed her own obsession, the one thing
-    which had truly made her blind. \r\n\r\nEven in her failure, there was knowledge
-    to be gained.\r\n"
+  endingStory: "At last, she reaches the sacred temple where the artifact sits, awaiting
+    a worthy holder. Though worn and battle-scarred, she scales the blocks of stone,
+    her endless thirst restoring her strength. \r\n\r\nAnd yet, atop the temple,
+    she finds nothing. She stands tall, taking in the overwhelming divine power all
+    around; no doubt about it, this is the right place. Yet the artifact is nowhere
+    to be found.\r\n\r\nOr, rather - a thought strikes her like sudden lightning
+    - she cannot find it. Her eyes! No longer do they see clearly! In her desperate
+    pursuit she had forsaken that which allowed her to know. The artifact must be
+    right there\u2026 yet she cannot not behold its sight. She is worthy of it.\r\n\r\nShe
+    turns back. No use lingering someplace she never truly belonged. Wordlessly,
+    she curses her own obsession, the one thing which had truly made her blind. Even
+    in her failure, there is knowledge to be gained.\r"
   endingIndex: 0
   endText: {fileID: 1888791821}
   endTextSpeed: 0.02

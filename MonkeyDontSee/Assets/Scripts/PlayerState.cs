@@ -20,6 +20,13 @@ public class PlayerState : MonoBehaviour
         _iFrames = false;
         spriteRend = GetComponent<SpriteRenderer>();
         playerHealth = maxPlayerHealth;
+
+        EyesManager.onPlayerGiveUp += RestoreValues;
+    }
+
+    void OnDisabled()
+    {
+        EyesManager.onPlayerGiveUp -= RestoreValues;
     }
 
     void Update()
@@ -64,12 +71,12 @@ public class PlayerState : MonoBehaviour
     {
         _iFrames = true;
         spriteRend.color = new Color(0.2f, 0, 0, 1f);
-        Debug.Log(_iFrames);
+        //Debug.Log(_iFrames);
 
         yield return new WaitForSeconds(iframesTime);
 
         _iFrames = false;
         spriteRend.color = Color.white;
-        Debug.Log(_iFrames);
+        //Debug.Log(_iFrames);
     }
 }
